@@ -5,7 +5,7 @@ let
 in
 
 {
-  home.username = ${username};
+  home.username = "${username}";
   home.homeDirectory = "/home/${home.username}";
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
