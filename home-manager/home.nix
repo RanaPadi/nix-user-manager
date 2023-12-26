@@ -6,7 +6,7 @@ in
 
 {
   home.username = "${username}";
-  home.homeDirectory = "/home/${home.username}";
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     python3
