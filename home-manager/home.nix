@@ -8,12 +8,31 @@ in
   home.username = "ranapadi";
   home.homeDirectory = "/home/ranapadi";
   home.stateVersion = "24.05";
-  imports = [
-    ./apps/neofetch.nix
-    ./apps/git.nix
-    ./apps/zsh.nix
-    ./apps/python.nix
-    ./apps/docker.nix
-  ];
+  home.packages = with pkgs; [
+    python3
+    python311Packages.pip
+    gitFull
+    docker
+    neofetch
+    ];
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "docker-compose" "docker" ];
+      theme = "dst";
+    };
+    initExtra = ''
+      bindkey '^f' autosuggest-accept
+    '';
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.home-manager.enable = true;
 }
