@@ -1,3 +1,3 @@
 home.packages = with pkgs; [
-    git
+    gitlab
     ];

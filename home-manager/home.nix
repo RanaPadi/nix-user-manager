@@ -5,13 +5,12 @@ let
 in
 
 {
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  home.username = "ranapadi";
+  home.homeDirectory = "/home/ranapadi";
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     python3
     python311Packages.pip
-    gitFull
     docker
     neofetch
     ];
