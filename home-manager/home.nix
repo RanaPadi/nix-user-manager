@@ -5,8 +5,8 @@ let
 in
 
 {
-  home.username = "ranapadi";
-  home.homeDirectory = "/home/ranapadi";
+  home.username = "${username}";
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     python3
