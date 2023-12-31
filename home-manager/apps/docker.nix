@@ -1,3 +1,6 @@
-home.packages = with pkgs; [
-    docker
-    ];
+{ config, pkgs, ... }:
+{
+ home.packages = with pkgs; [
+  docker
+  ];
+}

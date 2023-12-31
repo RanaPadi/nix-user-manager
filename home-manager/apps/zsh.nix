@@ -1,3 +1,4 @@
+{
 programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -17,3 +18,4 @@ programs.fzf = {
     enable = true;
     enableZshIntegration = true;
   };
+}

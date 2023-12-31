@@ -1,3 +1,6 @@
-home.packages = with pkgs; [
-    neofetch
-    ];
+{ config, pkgs, ... }:
+{
+ home.packages = with pkgs; [
+  neofetch
+  ];
+}

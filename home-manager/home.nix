@@ -2,36 +2,20 @@
 
 let
   username = import ./username.nix;
+  userdir = import ./userdir.nix;
 in
 
 {
   home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  home.homeDirectory = "${userdir}";
   home.stateVersion = "24.05";
-  home.packages = with pkgs; [
-    python3
-    python311Packages.pip
-    docker
-    neofetch
-    ];
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "docker-compose" "docker" ];
-      theme = "dst";
-    };
-    initExtra = ''
-      bindkey '^f' autosuggest-accept
-    '';
-  };
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  imports = [
+    ./apps/python.nix
+    ./apps/neofetch.nix
+    ./apps/docker.nix
+    ./apps/zsh.nix
+  ];
+
   programs.home-manager.enable = true;
 }

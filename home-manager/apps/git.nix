@@ -1,3 +1,5 @@
-home.packages = with pkgs; [
-    gitlab
-    ];
+{
+ home.packages = with pkgs; [
+  gitFull
+  ];
+}
